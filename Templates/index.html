@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title> News Report </title>
+{% endblock %}
+
+{% block body %}
+
+
+<div class="card-container">
+    {% for art in articles %}
+    <a href="{{ art.url }}" class="card" target="_blank">
+        {% if art.image and art.image != 'None' %}
+            <img src="{{ art.image }}" alt="{{ art.title }}">
+        {% else %}
+
+        {% endif %}
+        <div class="card-content">
+            <p class="card-title">{{ art.title }}</p>
+            <p>{{ art.author }}</p>
+            <p>{{ art.published }}</p>
+            <p>{{ art.description }}</p>
+        </div>
+    </a>
+{% endfor %}
+</div>
+{% endblock %}
+
+
